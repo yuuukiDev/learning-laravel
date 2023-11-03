@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/users', function(){
+    return view('users');
+});
+
+Route::get('/users/{id}', function(int $id){
+    if ($id == 1) {
+        return "admin";
+    } else {
+        return "user";
+    }
+});
