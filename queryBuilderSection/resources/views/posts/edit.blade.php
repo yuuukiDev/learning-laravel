@@ -2,7 +2,7 @@
 
 
 
-<form action="{{route('posts.insert')}}" method="post">
+<form action="{{route('posts.update', $post->id)}}" method="post">
     @csrf
     <input type="text" name="title" value="{{$post->title}}">
     <input type="text" name="body" value="{{$post->body}}">

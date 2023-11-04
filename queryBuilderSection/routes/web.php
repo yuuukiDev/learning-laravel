@@ -22,5 +22,5 @@ Route::controller(PostController::class)->group(function(){
     Route::get('post/create', 'create');
     Route::post('post/insert', 'insert')->name('posts.insert');
     Route::get('post/edit/{id}', 'edit')->name('posts.edit');
-
+    Route::post('post/update/{id}', 'update')->name('posts.update');
 });
