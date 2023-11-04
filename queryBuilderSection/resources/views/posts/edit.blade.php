@@ -4,7 +4,7 @@
 
 <form action="{{route('posts.insert')}}" method="post">
     @csrf
-    <input type="text" name="title" placeholder="Title">
-    <input type="text" name="body" placeholder="Body">
+    <input type="text" name="title" value="{{$post->title}}">
+    <input type="text" name="body" value="{{$post->body}}">
     <button type="submit">Submit</button>
 </form>

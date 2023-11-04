@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 
 Route::controller(PostController::class)->group(function(){
+    Route::get('posts', 'index');
     Route::get('post/create', 'create');
-    Route::post('post/create/insert', 'insert')->name('post.insert');
+    Route::post('post/insert', 'insert')->name('posts.insert');
+    Route::get('post/edit/{id}', 'edit')->name('posts.edit');
+
 });
