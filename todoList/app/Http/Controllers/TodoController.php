@@ -49,7 +49,8 @@ class TodoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $todo = DB::table('todos')->where('id', $id)->first();
+        return view('todos.edit', compact('todo'));
     }
 
     /**
@@ -57,7 +58,11 @@ class TodoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('todos')->where('id', $id)->update([
+            'task' => $request->task,
+            'description' => $request->description,
+        ]);
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -65,6 +70,14 @@ class TodoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('todos')->where('id', $id)->delete();
+        return redirect()->route('todo.index');
+    }
+
+    public function isFinished(string $id) {
+        DB::table('todos')->where('id', $id)->update([
+            'status' => 1,
+        ]);
+        return redirect()->route('todo.index');
     }
 }

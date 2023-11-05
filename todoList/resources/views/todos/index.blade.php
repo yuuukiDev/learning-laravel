@@ -41,11 +41,11 @@
                   <td>
                     <span class="ms-2">{{$todo->description}}</span>
                   </td>
-                  <td class="fw-bold">{{$todo->status}}</td>
+                  <td class="fw-bold small">{{$todo->status ? "Completed" : "In Progress..."}}</td>
                   <td class="actions">
-                    <a class="btn btn-success" href="#" role="button">Done</a>
-                    <a class="btn btn-primary" href="#" role="button">Edit</a>
-                    <a class="btn btn-danger" href="#" role="button">Delete</a>
+                    <a class="btn btn-success" href="{{route('todo.finish', $todo->id)}}" role="button">Done</a>
+                    <a class="btn btn-primary" href="{{route('todo.edit', $todo->id)}}" role="button">Edit</a>
+                    <a class="btn btn-danger" href="{{route('todo.destroy', $todo->id)}}" role="button">Delete</a>
                   </td>
                 </tr>
                 @endforeach
