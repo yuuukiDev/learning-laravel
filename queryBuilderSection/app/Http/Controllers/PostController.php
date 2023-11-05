@@ -33,4 +33,11 @@ class PostController extends Controller
         ]);
         return response('Data Updated');
     }
+    public function delete($id) {
+        DB::table('posts')->where('id', $id)->delete();
+    }
+
+    public function deleteAll() {
+        DB::table('posts')->truncate();
+    }
 }
