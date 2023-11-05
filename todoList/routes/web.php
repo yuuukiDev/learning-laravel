@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('todos', [TodoController::class, 'index'])->name('todo.index');
-Route::get('todo/create', [TodoController::class, 'create'])->name('todo.create');
-Route::post('todo/store', [TodoController::class, 'store'])->name('todo.store');
-Route::get('todo/edit/{id}', [TodoController::class, 'edit'])->name('todo.edit');
-Route::post('todo/update/{id}', [TodoController::class, 'update'])->name('todo.update');
-Route::get('todo/finished/{id}', [TodoController::class, 'finished'])->name('todo.finish');
-Route::get('todo/notfinished/{id}', [TodoController::class, 'notFinished'])->name('todo.notFinish');
-Route::get('todo/destroy/{id}', [TodoController::class, 'destroy'])->name('todo.destroy');
+Route::controller(TodoController::class)->group(function(){
+    Route::get('todos', 'index')->name('todo.index');
+    Route::get('todo/create', 'create')->name('todo.create');
+    Route::post('todo/store', 'store')->name('todo.store');
+    Route::get('todo/edit/{id}', 'edit')->name('todo.edit');
+    Route::post('todo/update/{id}', 'update')->name('todo.update');
+    Route::get('todo/finished/{id}', 'finished')->name('todo.finish');
+    Route::get('todo/notfinished/{id}', 'notFinished')->name('todo.notFinish');
+    Route::get('todo/destroy/{id}', 'destroy')->name('todo.destroy');
+});
 
 
