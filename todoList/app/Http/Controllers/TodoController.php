@@ -74,9 +74,15 @@ class TodoController extends Controller
         return redirect()->route('todo.index');
     }
 
-    public function isFinished(string $id) {
+    public function finished(string $id) {
         DB::table('todos')->where('id', $id)->update([
             'status' => 1,
+        ]);
+        return redirect()->route('todo.index');
+    }
+    public function notFinished(string $id) {
+        DB::table('todos')->where('id', $id)->update([
+            'status' => 0,
         ]);
         return redirect()->route('todo.index');
     }

@@ -44,6 +44,7 @@
                   <td class="fw-bold small">{{$todo->status ? "Completed" : "In Progress..."}}</td>
                   <td class="actions">
                     <a class="btn btn-success" href="{{route('todo.finish', $todo->id)}}" role="button">Done</a>
+                    <a class="btn btn-secondary" href="{{route('todo.notFinish', $todo->id)}}" role="button">Not Done</a>
                     <a class="btn btn-primary" href="{{route('todo.edit', $todo->id)}}" role="button">Edit</a>
                     <a class="btn btn-danger" href="{{route('todo.destroy', $todo->id)}}" role="button">Delete</a>
                   </td>
